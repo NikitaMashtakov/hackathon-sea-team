@@ -30,4 +30,5 @@ export class ClicksModule extends Module {
 			);
 		}, this.timeLimit);
 	}
+
 }
