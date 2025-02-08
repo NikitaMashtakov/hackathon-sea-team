@@ -1,12 +1,11 @@
 import { ContextMenu } from "./menu";
+import { ClearModule } from "./modules/clear.module";
+import { ClicksModule } from "./modules/clicks.module";
 import "./styles.css";
 
 document.addEventListener("DOMContentLoaded", function () {
   const menu = new ContextMenu("#menu");
   document.body.appendChild(menu.el);
-
-  document.body.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-    menu.open(event.pageX, event.pageY);
-  });
+  menu.add(new ClicksModule("clicker", "Clicker")); //ДЛЯ ТЕСТА
+  menu.add(new ClearModule("clear", "Clear")); //Обязательный модуль, должен быть последним
 });
