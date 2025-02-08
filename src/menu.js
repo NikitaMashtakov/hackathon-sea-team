@@ -1,12 +1,12 @@
-import { Menu } from './core/menu';
-import { clearAll } from './utils';
+import { Menu } from "./core/menu";
+import { clearAll } from "./utils";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
     this.modulesList = [];
 
-    document.body.addEventListener('contextmenu', (event) => {
+    document.body.addEventListener("contextmenu", (event) => {
       event.preventDefault();
       let x, y;
       if (window.innerWidth - 150 < event.pageX) {
@@ -22,7 +22,8 @@ export class ContextMenu extends Menu {
       this.open(x, y);
     });
 
-    this.el.addEventListener('click', (event) => {
+
+    this.el.addEventListener("click", (event) => {
       const module = this.modulesList.find(
         ({ type }) => type === event.target.dataset.type
       );
@@ -36,15 +37,17 @@ export class ContextMenu extends Menu {
 
   open(pageX, pageY) {
     this.el.style = `left: ${pageX}px; top: ${pageY}px`;
-    this.el.classList.add('open');
+
+    this.el.classList.add("open");
   }
 
   close() {
-    this.el.classList.remove('open');
+    this.el.classList.remove("open");
   }
 
   add(module) {
     this.modulesList.push(module);
     this.el.insertAdjacentHTML('beforeend', module.toHTML());
+
   }
 }
