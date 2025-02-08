@@ -1,10 +1,10 @@
 import { Module } from '../core/module';
 
 export class TimerModule extends Module {
-	constructor() {
-		super('timer', 'Таймер отсчета');
-		this.timerContainer = null;
-		this.interval = null;
+	constructor(type, text) {
+		super(type, text);
+		this.clickCount = 0;
+		this.timeLimit = 3000;
 	}
 
 	trigger() {

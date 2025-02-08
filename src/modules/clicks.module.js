@@ -1,9 +1,9 @@
 import { Module } from '../core/module';
 
 export class ClicksModule extends Module {
-	constructor() {
-		super('clicks', 'Анализ кликов');
-		this.clickCount = 0;
+  constructor(type, text) {
+		super(type, text)
+    this.clickCount = 0;
 		this.timeLimit = 3000;
 	}
 
