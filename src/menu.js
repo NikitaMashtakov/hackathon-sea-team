@@ -1,4 +1,5 @@
 import { Menu } from "./core/menu";
+import { clearAll } from "./utils";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -26,6 +27,7 @@ export class ContextMenu extends Menu {
         ({ type }) => type === event.target.dataset.type
       );
       if (module) {
+        clearAll();
         module.trigger();
       }
       this.close();

@@ -2,9 +2,11 @@ import { Module } from "../core/module";
 
 export class ClearModule extends Module {
   trigger() {
-    const container = document.querySelector(".container");
+    const container = document.querySelectorAll(".container");
     if (container) {
-      container.remove();
+      container.forEach((el) => {
+        el.remove();
+      });
     }
   }
   toHTML() {
