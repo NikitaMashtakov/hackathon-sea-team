@@ -1,43 +1,22 @@
-import { Menu } from '../core/menu';
+import { Module } from '../core/module';
+import { random } from '../utils';
 
-export class ContextMenu extends Menu {
-    constructor(ul) {
-        super(ul)
-
-        const message = document.createElement('div')
-        message.className = 'message'
-        message.textContent = 'Вызвать сообщение'
-        this.ul.appendChild(message)
-        this.message = message
-
-
-        this.getMessageData = async function() {
-            try {
-              const response = await fetch('/messages/message.json');
-              if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-              }
-              const messageData = await response.json();
-              this.messages = messageData.message
-              return messageData;
-            } catch (error) {
-              console.error('Ошибка при чтении message.json:', error);
-              return null
-            }
-          }
-
-
-        this.message.addEventListener('click', async () => { 
-            const data = await this.getMessageData()
-            if (data) {
-                alert(this.getRandomMessage())
-            } else {
-                alert('Не удалось загрузить сообщения.');
-            }
-        })
+export class ContextMenu extends Module {
+  trigger() {
+    this.getMessageData = async function() {
+      try {
+        const response = await fetch('https://jsonplaceholder.org/comments');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const messageData = await response.json();
+        this.messages = messageData.comment
+        random(1, messages.length)
+        return this.messages[randomIndex]
+      } catch (error) {
+        console.error('Ошибка при чтении message.json:', error);
+        return null
+      }
     }
-    getRandomMessage() {
-        const random = Math.floor(Math.random() * this.messages.length)
-        return this.messages[random].message
-    }
+  }
 }
