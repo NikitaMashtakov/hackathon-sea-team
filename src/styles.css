@@ -44,3 +44,15 @@ body {
 .menu .menu-item.clear-button:hover {
   color: #ff4d4d;
 }
+
+.timer-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1001;
+}
