@@ -10,4 +10,4 @@ document.addEventListener('DOMContentLoaded', function () {
 	menu.add(new TimerModule('timer', 'Таймер отсчета'));
 	menu.add(new ClicksModule('clicks', 'Анализ кликов'));
 	menu.add(new ClearModule('clear', 'Clear')); //Обязательный модуль, должен быть последним
-});
+}
