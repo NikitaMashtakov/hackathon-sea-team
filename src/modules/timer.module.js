@@ -6,7 +6,6 @@ export class TimerModule extends Module {
 		this.clickCount = 0;
 		this.timeLimit = 3000;
 	}
-
 	trigger() {
 		const userInput = prompt('Введите время в секундах:');
 		const time = parseInt(userInput, 10);
