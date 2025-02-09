@@ -81,7 +81,6 @@ export class ShapeModule extends Module {
       points.push(coord);
     }
     const p = points.join(" ");
-    console.log(p);
     polygon.setAttribute("points", `${p}`);
     svg.append(polygon);
     return svg;

@@ -207,8 +207,9 @@ body {
   transition: opacity 0.3s ease-in 0.4s;
 }
 
-#modules-container {
+.greeting {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
