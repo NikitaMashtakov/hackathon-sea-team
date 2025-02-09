@@ -1,4 +1,5 @@
 import { Module } from "../core/module";
+import { clearAll, greetingMessage } from "../utils";
 
 export class ClicksModule extends Module {
   constructor(type, text, timeLimit) {
@@ -32,6 +33,8 @@ export class ClicksModule extends Module {
           this.timeLimit / 1000
         } секунд`
       );
+      clearAll();
+      greetingMessage();
     }, this.timeLimit);
   }
 }
