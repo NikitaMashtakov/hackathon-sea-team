@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +8,15 @@
 }
 
 .message {
-  font-size: 50px;
-  font-family: "Monsieur La Doulaise", serif;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 2.5;
-  color: blueviolet;
-  background: rgb(9, 150, 216);
+	width: 500px;
+	padding: 15px 15px 15px 15px;
+	font-size: 16px;
+	font-family: "Orbitron", serif;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 2.5;
+	color: white;
+	background: hotpink;
 }
 
 body {
