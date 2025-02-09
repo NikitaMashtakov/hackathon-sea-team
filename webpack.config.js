@@ -1,6 +1,8 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
@@ -42,6 +44,14 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: filename("css"),
       }),
+			new CopyWebpackPlugin({
+				patterns: [
+					{
+						from: path.resolve(__dirname, 'public'), // Папка с исходными файлами
+						to: path.resolve(__dirname, 'dist'),    // Куда копировать
+					},
+				],
+			}),
     ],
     module: {
       rules: [
@@ -58,10 +68,6 @@ module.exports = (env, argv) => {
               presets: ["@babel/preset-env"],
             },
           },
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "public/img/city-cards",
         },
       ],
     },
