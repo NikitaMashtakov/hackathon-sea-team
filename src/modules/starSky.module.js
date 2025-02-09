@@ -1,32 +1,32 @@
-import { Module } from "../core/module";
-import { random } from "../utils";
+import { Module } from '../core/module';
+import { random } from '../utils';
 
 export class StarSkyModule extends Module {
   trigger() {
-    console.log("StarSkyModule.trigger() called");
     this.createStarSky();
   }
+
   createStarSky() {
-    document.body.style.backgroundColor = "black";
-    console.log("typeof this.createStars:", typeof this.createStars);
-    const canvas = document.createElement("canvas");
-    canvas.id = "starSkyCanvas";
-    document.body.appendChild(canvas);
-    console.log(canvas);
+    const container = document.createElement('div');
+    container.id = 'starSkyContainer';
+    container.classList.add('container');
+    container.classList.add('star-sky-container');
+    document.body.appendChild(container);
 
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.zIndex = "-1";
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    console.log(canvas.width, canvas.height);
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starSkyCanvas';
+    container.appendChild(canvas);
 
-    const ctx = canvas.getContext("2d");
-    console.log(ctx);
+    const ctx = canvas.getContext('2d');
 
-    const stars = this.createStars(200); //this.createStars.bind(this)(200);
-    console.log(stars);
+    const setCanvasSize = () => {
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
+    };
+
+    setCanvasSize();
+
+    let stars = this.createStars(200);
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -36,7 +36,14 @@ export class StarSkyModule extends Module {
       });
       requestAnimationFrame(animate);
     };
+
     animate();
+
+    window.addEventListener('resize', () => {
+      setCanvasSize();
+      stars = this.createStars(200);
+      animate();
+    });
   }
 
   createStars(count) {
@@ -45,7 +52,7 @@ export class StarSkyModule extends Module {
       const x = random(0, window.innerWidth);
       const y = random(0, window.innerHeight);
       const radius = random(1, 3);
-      const speed = random(0.1, 0.5);
+      const speed = 0.2;
       stars.push(new Star(x, y, radius, speed));
     }
     return stars;
@@ -62,7 +69,6 @@ class Star {
   }
 
   update() {
-    console.log("star.update() called");
     this.y += this.speed;
     if (this.y > window.innerHeight) {
       this.y = 0;
@@ -71,7 +77,6 @@ class Star {
   }
 
   draw(ctx) {
-    console.log("star.draw() called");
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
