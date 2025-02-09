@@ -22,7 +22,6 @@ export class ContextMenu extends Menu {
       this.open(x, y);
     });
 
-
     this.el.addEventListener("click", (event) => {
       const module = this.modulesList.find(
         ({ type }) => type === event.target.dataset.type
