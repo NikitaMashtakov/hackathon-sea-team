@@ -1,7 +1,7 @@
 import { Module } from '../core/module'
 import { random } from '../utils'
 
-export class ContextMenu extends Module {
+export class RandomMessage extends Module {
   constructor(type, text) {
     super(type, text)
     this.message = "Сообщение загружается..."
