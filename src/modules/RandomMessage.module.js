@@ -6,7 +6,7 @@ export class RandomMessage extends Module {
     super(type, text)
     this.message = "Сообщение загружается..."
 }
-  async trigger() {
+  async trigger(click) {
     try {
         const response = await fetch('https://jsonplaceholder.org/comments')
         if (!response.ok) {
