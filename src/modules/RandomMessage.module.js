@@ -6,7 +6,7 @@ export class RandomMessage extends Module {
     super(type, text)
     this.message = "Сообщение загружается..."
 }
-  async trigger(click) {
+  async trigger() {
     try {
         const response = await fetch('https://jsonplaceholder.org/comments')
         if (!response.ok) {
@@ -24,7 +24,7 @@ export class RandomMessage extends Module {
     }
     showMessage() {
       const messageElement = document.createElement('div');
-      messageElement.className = 'container'
+      messageElement.classList.add('container', 'message')
       messageElement.textContent = this.message;
       document.body.appendChild(messageElement);
       setTimeout(() => {
