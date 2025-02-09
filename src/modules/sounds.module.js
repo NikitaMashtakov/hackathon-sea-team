@@ -17,5 +17,6 @@ export class SoundsModule extends Module {
     const randomSound = this.#sounds[random(0, this.#sounds.length - 1)];
     const audio = new Audio(randomSound.url);
     audio.play();
+		greetingMessage()
   }
 }
