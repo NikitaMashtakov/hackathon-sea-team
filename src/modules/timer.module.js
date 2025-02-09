@@ -4,7 +4,6 @@ export class TimerModule extends Module {
 	constructor(type, text) {
 		super(type, text);
 		this.clickCount = 0;
-		this.timeLimit = 3000;
 	}
 
 	trigger() {
