@@ -9,12 +9,14 @@ import { ShapeModule } from "./modules/shape.module";
 import { RandomMessage } from "./modules/RandomMessage.module";
 import { CityCardsModule } from "./modules/cityCards.module";
 import { greetingMessage } from "./utils";
+import { RandomBackgroundModule } from './modules/random-background.module';
 
 document.addEventListener("DOMContentLoaded", () => {
   greetingMessage();
   const menu = new ContextMenu("#menu");
   document.body.appendChild(menu.el);
   menu.add(new StarSkyModule("starSky", "Звездное небо"));
+  menu.add(new RandomBackgroundModule('random-background', 'Cлучайный фон'));
   menu.add(new TimerModule("timer", "Таймер отсчета"));
   menu.add(new ClicksModule("clicks", "Кликометр", 5000));
   menu.add(new SoundsModule("sounds", "Случайный звук"));

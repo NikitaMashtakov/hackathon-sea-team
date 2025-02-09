@@ -1,5 +1,5 @@
-import { Module } from "../core/module";
-import { random } from "../utils";
+import { Module } from '../core/module';
+import { random } from '../utils';
 
 export class StarSkyModule extends Module {
   trigger() {
@@ -38,6 +38,7 @@ export class StarSkyModule extends Module {
     };
 
     animate();
+
 
     window.addEventListener("resize", () => {
       setCanvasSize();

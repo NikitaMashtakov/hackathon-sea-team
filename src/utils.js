@@ -86,3 +86,12 @@ export function renderCityCards(cities, containerSelector, activeCard = 0) {
     cards.forEach((card) => card.classList.remove("active"));
   }
 }
+
+export function generateRandomColor() {
+  const max = 255;
+  const min = 0;
+  const randomColor_RR = random(min, max);
+  const randomColor_GG = random(min, max);
+  const randomColor_BB = random(min, max);
+  return `rgb(${randomColor_RR}, ${randomColor_GG}, ${randomColor_BB})`;
+}
