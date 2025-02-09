@@ -1,5 +1,5 @@
 import { Module } from "../core/module";
-import { random, loadDataFromJSON } from "../utils";
+import { random, loadDataFromJSON, greetingMessage } from "../utils";
 
 export class SoundsModule extends Module {
   #sounds = [];
