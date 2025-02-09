@@ -8,7 +8,7 @@ export class SoundsModule extends Module {
   async trigger() {
     if (!this.#isLoaded) {
       this.#sounds = await loadDataFromJSON(
-        "public/data/sounds.json",
+        "./data/sounds.json",
         "sounds"
       );
       this.#isLoaded = true;
