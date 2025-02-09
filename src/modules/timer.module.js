@@ -1,4 +1,5 @@
 import { Module } from "../core/module";
+import { clearAll, greetingMessage } from "../utils";
 
 export class TimerModule extends Module {
   constructor(type, text) {
@@ -12,6 +13,8 @@ export class TimerModule extends Module {
 
     if (isNaN(time) || time <= 0) {
       alert("Введите число больше 0");
+      clearAll();
+      greetingMessage();
       return;
     }
 
@@ -35,6 +38,8 @@ export class TimerModule extends Module {
         clearInterval(this.interval);
         alert("Время истекло!");
         this.removeTimer();
+        clearAll();
+        greetingMessage();
       } else {
         this.updateTimerDisplay(time);
       }
