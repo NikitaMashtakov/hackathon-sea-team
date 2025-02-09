@@ -28,17 +28,18 @@ export function greetingMessage() {
   const greeting = document.createElement("div");
   greeting.className = "greeting";
   greeting.innerHTML = `<h1>Добро пожаловать!</h1>
-    <h3>Вы используете плагин Морской команды хакатона от Result University</h3>
+    <p>Вы используете плагин Морской команды хакатона от Result University</p>
     <p>Для начала работы нажмите Правую кнопку мыши</p>
     <ol>
       <li>Звездное небо. Наблюдайте звездное небо на своем экране! Это
         завораживает!</li>
-              <li>Случайный цвет. Поменяйте простой белый цвет на более интересный!</li>
+              <li>Случайный цвет фона. Поменяйте простой белый цвет на более интересный!</li>
       <li>
         Таймер отсчета. Нужен таймер? Просто введите время в секундах и начнется
         отсчет!
       </li>
       <li>Кликометр. Проверь скорость своих пальцев!</li>
+      <li>Случайный звук. Хочешь пощекотать нервишки?!</li>
       <li>Рандомное сообщение. Не пацанские цитатки, но тоже неплохо!</li>
       <li>
         Случайная фигура. Проверь свою удачу! Выпадет ли тебе любимый цвет
@@ -87,7 +88,7 @@ export function renderCityCards(cities, containerSelector, activeCard = 0) {
   }
 }
 
-export function generateRandomColor() {
+export function getRandomColor() {
   const max = 255;
   const min = 0;
   const randomColor_RR = random(min, max);
