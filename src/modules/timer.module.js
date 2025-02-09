@@ -11,7 +11,8 @@ export class TimerModule extends Module {
 		const userInput = prompt('Введите время в секундах:');
 		const time = parseInt(userInput, 10);
 
-		if (time <= 0) {
+
+		if (isNaN(time) || time <= 0) {
 			alert('Введите число больше 0');
 			return;
 		}

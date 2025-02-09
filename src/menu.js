@@ -22,7 +22,6 @@ export class ContextMenu extends Menu {
       this.open(x, y);
     });
 
-
     this.el.addEventListener("click", (event) => {
       const module = this.modulesList.find(
         ({ type }) => type === event.target.dataset.type
@@ -37,7 +36,6 @@ export class ContextMenu extends Menu {
 
   open(pageX, pageY) {
     this.el.style = `left: ${pageX}px; top: ${pageY}px`;
-
     this.el.classList.add("open");
   }
 
@@ -47,7 +45,7 @@ export class ContextMenu extends Menu {
 
   add(module) {
     this.modulesList.push(module);
-    this.el.insertAdjacentHTML('beforeend', module.toHTML());
+    this.el.insertAdjacentHTML("beforeend", module.toHTML());
 
   }
 }
