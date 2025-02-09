@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(menu.el);
   menu.add(new StarSkyModule("starSky", "Звездное небо"));
   menu.add(new TimerModule("timer", "Таймер отсчета"));
-  menu.add(new ClicksModule("clicks", "Анализ кликов"));
+  menu.add(new ClicksModule("clicks", "Анализ кликов", 5000));
   menu.add(new SoundsModule("sounds", "случайный звук"));
   menu.add(new ShapeModule("div", "контейнер"));
   menu.add(new ClearModule("clear", "Clear")); //Обязательный модуль, должен быть последним
