@@ -96,18 +96,6 @@ body {
   z-index: 1001;
 }
 
-.rectangle {
-  width: 300px;
-  height: 150px;
-  background: linear-gradient(135deg, #221280, #847f9e);
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  animation: pulse 2s infinite;
-  position: absolute;
-  top: 20px;
-  left: 40%;
-}
-
 .button {
   top: 20px;
   left: 40%;
