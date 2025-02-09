@@ -7,17 +7,17 @@ export class StarSkyModule extends Module {
   }
 
   createStarSky() {
-    const container = document.createElement('div');
-    container.id = 'starSkyContainer';
-    container.classList.add('container');
-    container.classList.add('star-sky-container');
+    const container = document.createElement("div");
+    container.id = "starSkyContainer";
+    container.classList.add("container");
+    container.classList.add("star-sky-container");
     document.body.appendChild(container);
 
-    const canvas = document.createElement('canvas');
-    canvas.id = 'starSkyCanvas';
+    const canvas = document.createElement("canvas");
+    canvas.id = "starSkyCanvas";
     container.appendChild(canvas);
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     const setCanvasSize = () => {
       canvas.width = container.offsetWidth;
@@ -39,7 +39,8 @@ export class StarSkyModule extends Module {
 
     animate();
 
-    window.addEventListener('resize', () => {
+
+    window.addEventListener("resize", () => {
       setCanvasSize();
       stars = this.createStars(200);
       animate();

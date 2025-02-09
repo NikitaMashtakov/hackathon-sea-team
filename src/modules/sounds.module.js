@@ -1,17 +1,13 @@
 import { Module } from '../core/module'
-import { random, loadSoundsFromJSON } from '../utils'
+import { random, loadDataFromJSON } from '../utils'
 
 export class SoundsModule extends Module {
 	#sounds = []
 	#isLoaded = false
 
-	constructor(type, text) {
-		super(type, text)
-	}
-
 	async trigger() {
 		if (!this.#isLoaded) {
-			this.#sounds = await loadSoundsFromJSON('public/data/sounds.json')
+			this.#sounds = await loadDataFromJSON('public/data/sounds.json', 'sounds')
 			this.#isLoaded = true
 		}
 
