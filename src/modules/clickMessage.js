@@ -1,22 +1,26 @@
-import { Module } from '../core/module';
-import { random } from '../utils';
+import { Module } from '../core/module'
+import { random } from '../utils'
 
 export class ContextMenu extends Module {
-  trigger() {
-    this.getMessageData = async function() {
-      try {
-        const response = await fetch('https://jsonplaceholder.org/comments');
+  constructor(type, text) {
+    super(type, text)
+    this.message = "Сообщение загружается..."
+}
+  async trigger() {
+    try {
+        const response = await fetch('https://jsonplaceholder.org/comments')
         if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(`HTTP error! Status: ${response.status}`)
         }
-        const messageData = await response.json();
-        this.messages = messageData.comment
-        random(1, messages.length)
-        return this.messages[randomIndex]
+        const comments = await response.json()
+        const randomIndex = random(0, comments.length-1)
+        console.log(this.message = comments[randomIndex].comment)
       } catch (error) {
         console.error('Ошибка при чтении message.json:', error);
-        return null
+        this.message = 'Не удалось получить сообщение.'
       }
     }
+    getRandomMessage() {
+      return this.message || "Сообщение загружается...";
+    }
   }
-}
