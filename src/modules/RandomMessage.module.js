@@ -14,12 +14,23 @@ export class RandomMessage extends Module {
         }
         const comments = await response.json()
         const randomIndex = random(0, comments.length-1)
-        console.log(this.message = comments[randomIndex].comment)
+        this.message = comments[randomIndex].comment
+        this.showMessage()
       } catch (error) {
         console.error('Ошибка при чтении message.json:', error);
         this.message = 'Не удалось получить сообщение.'
+        this.showMessage()
       }
     }
+    showMessage() {
+      const messageElement = document.createElement('div');
+      messageElement.className = 'container'
+      messageElement.textContent = this.message;
+      document.body.appendChild(messageElement);
+      setTimeout(() => {
+          messageElement.remove()
+      }, 5000);
+  }
     getRandomMessage() {
       return this.message || "Сообщение загружается...";
     }
