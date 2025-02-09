@@ -6,10 +6,10 @@ import { StarSkyModule } from "./modules/starSky.module";
 import "./styles.css";
 import { SoundsModule } from "./modules/sounds.module";
 import { ShapeModule } from "./modules/shape.module";
-import { RandomMessage } from "./modules/RandomMessage.module";
+import { RandomMessage } from "./modules/randomMessage.module";
 import { CityCardsModule } from "./modules/cityCards.module";
 import { greetingMessage } from "./utils";
-import { RandomBackgroundModule } from "./modules/random-background.module";
+import { RandomBackgroundModule } from "./modules/randomBackground.module";
 
 document.addEventListener("DOMContentLoaded", () => {
   greetingMessage();

@@ -1,5 +1,5 @@
-import { Module } from '../core/module';
-import { random } from '../utils';
+import { Module } from "../core/module";
+import { random } from "../utils";
 
 export class StarSkyModule extends Module {
   trigger() {
@@ -7,11 +7,12 @@ export class StarSkyModule extends Module {
   }
 
   createStarSky() {
+    const modulesContainer = document.querySelector("#modules-container");
     const container = document.createElement("div");
     container.id = "starSkyContainer";
     container.classList.add("container");
     container.classList.add("star-sky-container");
-    document.body.appendChild(container);
+    modulesContainer.appendChild(container);
 
     const canvas = document.createElement("canvas");
     canvas.id = "starSkyCanvas";
@@ -38,7 +39,6 @@ export class StarSkyModule extends Module {
     };
 
     animate();
-
 
     window.addEventListener("resize", () => {
       setCanvasSize();

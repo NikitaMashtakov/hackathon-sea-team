@@ -1,58 +1,57 @@
-import { Module } from '../core/module';
+import { Module } from "../core/module";
 
 export class TimerModule extends Module {
-	constructor(type, text) {
-		super(type, text);
-		this.clickCount = 0;
-	}
+  constructor(type, text) {
+    super(type, text);
+    this.clickCount = 0;
+  }
 
-	trigger() {
-		const userInput = prompt('Введите время в секундах:');
-		const time = parseInt(userInput, 10);
+  trigger() {
+    const userInput = prompt("Введите время в секундах:");
+    const time = parseInt(userInput, 10);
 
+    if (isNaN(time) || time <= 0) {
+      alert("Введите число больше 0");
+      return;
+    }
 
-		if (isNaN(time) || time <= 0) {
-			alert('Введите число больше 0');
-			return;
-		}
+    this.createTimer(time);
+  }
 
-		this.createTimer(time);
-	}
+  createTimer(time) {
+    if (this.timerContainer) {
+      this.removeTimer();
+    }
+    const modulesContainer = document.querySelector("#modules-container");
+    this.timerContainer = document.createElement("div");
+    this.timerContainer.classList.add("timer-container");
+    modulesContainer.appendChild(this.timerContainer);
 
-	createTimer(time) {
-		if (this.timerContainer) {
-			this.removeTimer();
-		}
+    this.updateTimerDisplay(time);
 
-		this.timerContainer = document.createElement('div');
-		this.timerContainer.classList.add('timer-container');
-		document.body.appendChild(this.timerContainer);
+    this.interval = setInterval(() => {
+      time--;
+      if (time < 0) {
+        clearInterval(this.interval);
+        alert("Время истекло!");
+        this.removeTimer();
+      } else {
+        this.updateTimerDisplay(time);
+      }
+    }, 1000);
+  }
 
-		this.updateTimerDisplay(time);
+  updateTimerDisplay(time) {
+    this.timerContainer.textContent = `Осталось: ${time} сек`;
+  }
 
-		this.interval = setInterval(() => {
-			time--;
-			if (time < 0) {
-				clearInterval(this.interval);
-				alert('Время истекло!');
-				this.removeTimer();
-			} else {
-				this.updateTimerDisplay(time);
-			}
-		}, 1000);
-	}
-
-	updateTimerDisplay(time) {
-		this.timerContainer.textContent = `Осталось: ${time} сек`;
-	}
-
-	removeTimer() {
-		if (this.interval) {
-			clearInterval(this.interval);
-		}
-		if (this.timerContainer) {
-			this.timerContainer.remove();
-			this.timerContainer = null;
-		}
-	}
+  removeTimer() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    if (this.timerContainer) {
+      this.timerContainer.remove();
+      this.timerContainer = null;
+    }
+  }
 }
