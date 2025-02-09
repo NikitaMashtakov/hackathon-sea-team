@@ -1,0 +1,9 @@
+{
+	"cities": [
+		{ "name": "Tokyo", "url": "./img/city-cards/tokyo.jpg" },
+		{ "name": "New York", "url": "./img/city-cards/new-york.jpg" },
+		{ "name": "Moscow", "url": "./img/city-cards/moscow.jpg" },
+		{ "name": "Dubai", "url": "./img/city-cards/dubai.jpg" },
+		{ "name": "Sydney", "url": "./img/city-cards/sydney.jpg" }
+	]
+}
