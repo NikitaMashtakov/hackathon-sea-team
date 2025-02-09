@@ -1,5 +1,5 @@
-import { Module } from '../core/module';
-import { generateRandomColor } from '../utils';
+import { Module } from "../core/module";
+import { getRandomColor } from "../utils";
 
 export class RandomBackgroundModule extends Module {
   trigger() {
@@ -7,19 +7,19 @@ export class RandomBackgroundModule extends Module {
     this.changeBackgroundColor();
   }
   containerCheck() {
-    let container = document.getElementById('container');
+    let container = document.getElementById("container");
     if (!container) {
-      container = document.createElement('div');
-      container.id = 'container';
-      container.classList.add('container');
+      container = document.createElement("div");
+      container.id = "container";
+      container.classList.add("container");
       document.body.appendChild(container);
     }
   }
 
   changeBackgroundColor = () => {
-    const container = document.getElementById('container');
+    const container = document.getElementById("container");
     if (container) {
-      container.style.backgroundColor = generateRandomColor();
+      container.style.backgroundColor = getRandomColor();
     } else {
       console.error('Container with id "container" not found.');
     }
