@@ -5,10 +5,6 @@ export class SoundsModule extends Module {
 	#sounds = []
 	#isLoaded = false
 
-	constructor(type, text) {
-		super(type, text)
-	}
-
 	async trigger() {
 		if (!this.#isLoaded) {
 			this.#sounds = await loadSoundsFromJSON('public/data/sounds.json')
