@@ -1,0 +1,14 @@
+{
+	"sounds": [
+		{ "url": "public/sounds/Impact-1.mp3" },
+		{ "url": "public/sounds/Impact-2.mp3" },
+		{ "url": "public/sounds/Impact-3.mp3" },
+		{ "url": "public/sounds/Impact-4.mp3" },
+		{ "url": "public/sounds/Screamlike-1.mp3" },
+		{ "url": "public/sounds/Screamlike-2.mp3" },
+		{ "url": "public/sounds/Tension-1.mp3" },
+		{ "url": "public/sounds/Tension-2.mp3" },
+		{ "url": "public/sounds/Tension-3.mp3" },
+		{ "url": "public/sounds/Tension-4.mp3" }
+	]
+}
