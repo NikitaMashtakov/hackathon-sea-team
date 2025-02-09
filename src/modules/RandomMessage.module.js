@@ -1,5 +1,5 @@
 import { Module } from "../core/module";
-import { random } from "../utils";
+import { clearAll, greetingMessage, random } from "../utils";
 
 export class RandomMessage extends Module {
   constructor(type, text) {
@@ -30,6 +30,8 @@ export class RandomMessage extends Module {
     container.append(messageElement);
     setTimeout(() => {
       messageElement.remove();
+      clearAll();
+      greetingMessage();
     }, 5000);
   }
   getRandomMessage() {

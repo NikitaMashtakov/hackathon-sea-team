@@ -7,10 +7,7 @@ export class CityCardsModule extends Module {
 
   async trigger() {
     if (!this.#isLoaded) {
-      this.#cities = await loadDataFromJSON(
-        "./data/cityCards.json",
-        "cities"
-      );
+      this.#cities = await loadDataFromJSON("./data/cityCards.json", "cities");
       this.#isLoaded = true;
     }
 
