@@ -14,9 +14,7 @@ export class CityCardsModule extends Module {
 			this.#isLoaded = true
 		}
 
-		const container = document.createElement('div')
-		container.className = 'container'
+		const container = document.querySelector('#modules-container')
 		renderCityCards(this.#cities, container, 3)
-		document.body.append(container)
 	}
 }
