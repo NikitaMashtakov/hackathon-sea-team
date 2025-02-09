@@ -20,6 +20,7 @@ export function clearAll() {
     newContainer.id = "modules-container";
     container.replaceWith(newContainer);
   }
+  document.body.style.backgroundColor = "#fff";
 }
 
 export function greetingMessage() {
