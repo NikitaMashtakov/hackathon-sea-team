@@ -1,13 +1,10 @@
 import { Module } from "../core/module";
+import { clearAll, greetingMessage } from "../utils";
 
 export class ClearModule extends Module {
   trigger() {
-    const container = document.querySelectorAll(".container");
-    if (container) {
-      container.forEach((el) => {
-        el.remove();
-      });
-    }
+    clearAll();
+    greetingMessage();
   }
   toHTML() {
     return `<li class="menu-item clear-button" data-type="${this.type}">${this.text}</li>`;
