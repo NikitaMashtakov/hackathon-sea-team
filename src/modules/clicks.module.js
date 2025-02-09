@@ -1,12 +1,11 @@
 import { Module } from '../core/module';
 
 export class ClicksModule extends Module {
-
 	constructor(type, text, timeLimit) {
 		super(type, text);
 		this.clickCount = 0;
 		this.timeLimit = timeLimit;
-
+	}
 
 	trigger() {
 		this.clickCount = 0;
@@ -35,6 +34,4 @@ export class ClicksModule extends Module {
 			);
 		}, this.timeLimit);
 	}
-
-   }
 }
